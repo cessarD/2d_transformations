@@ -26,6 +26,9 @@ function aumentar(tipo){
         if(valor<=5){ 
         document.getElementById("xtranslation").value=valor
         xtranslation(valor)
+
+       
+        
     }else{
         alert("no se permiten valores mayores de 5")
     }
@@ -37,9 +40,30 @@ function aumentar(tipo){
         if(valor<=5){ 
         document.getElementById("ytranslation").value=valor
         ytranslation(valor)
+
+       
+
     }else{
         alert("no se permiten valores mayores de 5")
     }
+    }
+    else if (tipo==="EjeYTraslation" && document.getElementById("rotacion").value!=0) {
+        let valor=document.getElementById("EjeYTraslation").value
+            ++valor
+        if (valor<=5) {
+            let rota= document.getElementById("rotacion").value
+
+            document.getElementById("EjeYTraslation").value=valor
+            console.log(document.getElementById("EjeYTraslation").value=valor)
+            Ejextranslation(valor)
+        }
+        
+    }
+    else if (tipo==="EjeYTraslation" && document.getElementById("rotacion").value==0){
+        alert("Este movimiento es con rotacion distinta de 0")
+    }
+    else{
+        alert("no se permiten valores mayores de 5")
     }
 
 }
@@ -73,6 +97,9 @@ function disminuir(tipo){
         if(valor>=0){ 
         document.getElementById("xtranslation").value=valor
         xtranslation(valor)
+        
+
+        
     }else{
         alert("no se permiten valores menores de 1")
     }
@@ -84,9 +111,22 @@ function disminuir(tipo){
         if(valor>=0){ 
         document.getElementById("ytranslation").value=valor
         ytranslation(valor)
+
+       
     }else{
         alert("no se permiten valores menores de 1")
     }
+    }else if (tipo==="EjeYTraslation") {
+        let valor=document.getElementById("EjeYTraslation").value
+        valor--
+        if (valor>=0) {
+            document.getElementById("EjeYTraslation").value=valor
+            console.log(document.getElementById("EjeYTraslation").value)
+            Ejextranslation(valor)
+        }
+        else{
+            alert("no se permiten valores menores de 1")
+        }
     }
 }
 
@@ -123,3 +163,22 @@ function ytranslation(valor){
     document.getElementById("cuadrado").style.paddingTop = `${move}px`;}
   
 }
+
+function Ejextranslation(valor){
+    if (valor!=0){
+    let movex=20*document.getElementById("xtranslation").value+(10*valor)
+
+    
+    let movy=(document.getElementById("ytranslation").value*20)-(20*valor)
+    let x =document.getElementById("cuadrado").style.paddingLeft*15;
+    
+
+    //console.log(paddingTop)
+    //x
+    document.getElementById("cuadrado").style.paddingLeft = `${movex}px`;
+
+    //y 
+    document.getElementById("cuadrado").style.paddingTop = `${movy}px`;
+    }
+}
+
