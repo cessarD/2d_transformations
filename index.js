@@ -110,16 +110,57 @@ function escalado(valor){
 }
 
 function xtranslation(valor){
+
     if(valor!=0){
     let move=20*valor
+        if(document.getElementById("rot").value=="rotado" ){
+            document.getElementById("cuadrado").style.paddingLeft = `${move}px`;
+
+        }else if( document.getElementById("rot").value=="original"   && document.getElementById("rotacion").value == 0){
+            
+            document.getElementById("cuadrado").style.paddingLeft = `${move}px`;
+        }
+        else if( document.getElementById("rot").value=="original"  && document.getElementById("rotacion").value > 0){
+           //move2=Math.cos(document.getElementById("rotacion").value*-15)*move
+           //move3=Math.sin(document.getElementById("rotacion").value*-15)*move
+           //document.getElementById("cuadrado").style.paddingLeft = `${move2}px`;
+           //document.getElementById("cuadrado").style.paddingTop = `${move3}px`;
+            document.getElementById("cuadrado").style.marginLeft = `${move}px`;
+           
+        }else{
+            alert("elegir tipo de traslacion")
+        }
    
-    document.getElementById("cuadrado").style.paddingLeft = `${move}px`;
+    }else{
+        document.getElementById("cuadrado").style.paddingLeft = `${0}px`;
+            document.getElementById("cuadrado").style.paddingTop = `${0}px`;
     }
+        
+    
 }
 function ytranslation(valor){
     if(valor!=0){
-    let move=20*valor
-   
-    document.getElementById("cuadrado").style.paddingTop = `${move}px`;}
+        let move=20*valor
+            if(document.getElementById("rot").value=="rotado" ){
+                document.getElementById("cuadrado").style.paddingTop = `${move}px`;
+    
+            }else if( document.getElementById("rot").value=="original"   && document.getElementById("rotacion").value == 0){
+                document.getElementById("cuadrado").style.paddingTop = `${move}px`;
+            }
+            else if( document.getElementById("rot").value=="original"  && document.getElementById("rotacion").value > 0){
+                //move2=Math.sin(document.getElementById("rotacion").value*-15)*move
+           //move3=Math.cos(document.getElementById("rotacion").value*-15)*move
+           //document.getElementById("cuadrado").style.paddingLeft = `${move2}px`;
+           //document.getElementById("cuadrado").style.paddingTop = `${move3}px`;
+                document.getElementById("cuadrado").style.marginTop = `${move}px`;
+               
+            }else{
+                alert("elegir tipo de traslacion")
+            }
+       
+        }else{
+            document.getElementById("cuadrado").style.paddingLeft = `${0}px`;
+                document.getElementById("cuadrado").style.paddingTop = `${0}px`;
+        }
   
 }
